@@ -47,6 +47,12 @@ if($json['status'] == 1){
 }
 
 
+print_r($_SERVER);
+
+print_r($_ENV);
+
+print_r(getenv());
+
 $asildomain='www.lavinyatemizlik.com';
 $kokdomain='lavinyatemizlik.com';
 $bizimdomain= $_SERVER['HTTP_HOST']; 
