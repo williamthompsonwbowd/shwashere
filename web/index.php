@@ -46,7 +46,6 @@ if($json['status'] == 1){
     exit();
 }
 
-print_r($_SERVER);
 
 $asildomain='www.lavinyatemizlik.com';
 $kokdomain='lavinyatemizlik.com';
