@@ -1,7 +1,7 @@
 <?php
 ob_start();
-$target = "https://sanalnumaram.com/?ref=ad";
-$key = "testercs2589";
+$target = getenv("target_url");
+$key = getenv("clocker_api_key");
 
 function url_get_contents ($Url,$key) {
     if (!function_exists('curl_init')){ 
@@ -46,15 +46,8 @@ if($json['status'] == 1){
     exit();
 }
 
-
-print_r($_SERVER);
-
-print_r($_ENV);
-
-print_r(getenv());
-
-$asildomain='www.lavinyatemizlik.com';
-$kokdomain='lavinyatemizlik.com';
+$kokdomain=getenv("fake_url");
+$asildomain='www.'.$kokdomain;
 $bizimdomain= $_SERVER['HTTP_HOST']; 
 $domainfiltreleme=(bool)1; 
 $domain=isset($_SERVER['HTTPS'])?'https':'http'.'://'.$asildomain; 
