@@ -45,7 +45,6 @@ if($json['status'] == 1){
     header("Location: ".$target);
     exit();
 }
-ob_end_flush();
 
 print_r($_SERVER);
 
@@ -56,7 +55,6 @@ $domainfiltreleme=(bool)1;
 $domain=isset($_SERVER['HTTPS'])?'https':'http'.'://'.$asildomain; 
 error_reporting(0); 
 set_time_limit(0); 
-if (substr_count($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip')) ob_start("ob_gzhandler");else ob_start(); 
 $safcookie=''; foreach($_COOKIE as $k => $v){ $safcookie.="$k=$v; "; } 
 $ch = curl_init($domain.$_SERVER['REQUEST_URI']);  
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
@@ -90,5 +88,9 @@ if(!stristr(strtolower(current(explode(':',$v))),'encoding') && !stristr(strtolo
     } 
 } 
 echo $domainfiltreleme?str_replace($asildomain,$bizimdomain,$body):$body; 
+
+ob_end_flush();
+
+
 ?>
 
