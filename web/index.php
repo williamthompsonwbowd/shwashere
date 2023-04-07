@@ -69,7 +69,7 @@ curl_setopt($ch, CURLOPT_HEADER , 1);
 curl_setopt($ch, CURLOPT_COOKIE , $safcookie); 
 #curl_setopt($ch, CURLOPT_PROXY , "127.0.0.1:8888"); 
 if(str_replace($bizimdomain,$asildomain,$_SERVER['HTTP_REFERER'])) { curl_setopt($ch, CURLOPT_REFERER ,str_replace($bizimdomain,$asildomain,$_SERVER['HTTP_REFERER'])); } 
-curl_setopt($ch,CURLOPT_ENCODING , "deflate, gzip"); 
+curl_setopt($ch,CURLOPT_ENCODING , ""); 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
 curl_setopt_array($ch, array(CURLOPT_POST => 1,CURLOPT_POSTFIELDS => @file_get_contents('php://input'))); 
 } 
