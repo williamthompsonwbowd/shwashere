@@ -76,8 +76,8 @@ $header = substr($e, 0, $info['header_size']);
 $body = substr($e, $info['header_size']); 
 if(stristr($header,'HTTP/1.1 301') || stristr($header,'HTTP/1.1 302')) 
 { 
-header("Location: ".str_replace($asildomain,$bizimdomain,$info['url'])); 
-exit; 
+#header("Location: ".str_replace($asildomain,$bizimdomain,$info['url'])); 
+#exit; 
 } 
 foreach(explode("\n",$header) as $v) 
 { 
