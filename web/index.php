@@ -82,7 +82,7 @@ exit;
 foreach(explode("\n",$header) as $v) 
 { 
 if(!stristr(strtolower(current(explode(':',$v))),'encoding') && !stristr(strtolower(current(explode(':',$v))),'length')){ 
-    header(str_replace($kokdomain,$bizimdomain,$v),0); 
+    #header(str_replace($kokdomain,$bizimdomain,$v),0); 
     } 
 } 
 echo $domainfiltreleme?str_replace($asildomain,$bizimdomain,$body):$body; 
